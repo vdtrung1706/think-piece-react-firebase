@@ -17,6 +17,7 @@ const AddPost = ({ onCreate = () => {} }) => {
         photoURL: 'http://placekitten.com/g/200/200',
       },
       favorites: 0,
+      comments: 0,
       createdAt: new Date(),
     };
     onCreate(post);

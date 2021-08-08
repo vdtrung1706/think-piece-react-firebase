@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const Post = ({ title, content, user, createAt, stars }) => {
+const Post = ({ title, content, user, createdAt, stars, comments }) => {
   return (
     <article className="Post">
       <div className="Post--content">
@@ -15,6 +15,12 @@ const Post = ({ title, content, user, createAt, stars }) => {
               ⭐️
             </span>
             {stars}
+          </p>
+          <p>
+            <span role="img" aria-label="comments">
+              🙊
+            </span>
+            {comments}
           </p>
           <p>Posted by {user.displayName}</p>
           <p>{moment(createAt).calendar()}</p>
@@ -40,6 +46,7 @@ Post.defaultProps = {
   },
   createAt: new Date(),
   stars: 0,
+  comments: 0,
 };
 
 export default Post;
