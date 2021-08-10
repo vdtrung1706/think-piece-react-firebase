@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -16,5 +17,13 @@ firebase.initializeApp(firebaseConfig);
 window.firebase = firebase;
 
 export const firestore = firebase.firestore();
+
+export const auth = firebase.auth();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export const signOut = () => auth.signOut();
 
 export default firebase;
