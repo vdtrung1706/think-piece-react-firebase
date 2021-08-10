@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { firestore } from '../firebase';
+import { auth, firestore } from '../firebase';
 
 const AddPost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const { uid, displayName, email, photoURL } = auth.currentUser || {};
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -11,12 +12,12 @@ const AddPost = () => {
       title,
       content,
       user: {
-        uid: '1111',
-        displayName: 'Steve Kinney',
-        email: 'steve@mailinator.com',
-        photoURL: 'http://placekitten.com/g/200/200',
+        uid,
+        displayName,
+        email,
+        photoURL,
       },
-      favorites: 0,
+      stars: 0,
       comments: 0,
       createdAt: new Date(),
     };
