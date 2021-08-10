@@ -7,7 +7,6 @@ const AddPost = ({ onCreate = () => {} }) => {
   const handleSubmit = event => {
     event.preventDefault();
     const post = {
-      id: Date.now().toString(),
       title,
       content,
       user: {
