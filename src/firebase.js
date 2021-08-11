@@ -54,9 +54,7 @@ export const createUserProfileDocument = async (user, addtionInfo) => {
 export const getUserDocument = async uid => {
   if (!uid) return null;
   try {
-    const userDocument = await firestore.collection('users').doc(uid).get();
-
-    return { uid, ...userDocument.data() };
+    return firestore.collection('users').doc(uid);
   } catch (error) {
     console.error('Erorr fetching user', error.message);
   }
