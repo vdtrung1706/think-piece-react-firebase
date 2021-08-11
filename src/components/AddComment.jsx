@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-const AddComment = () => {
-  const [content, setContent] = useState();
+const AddComment = ({ onCreate }) => {
+  const [content, setContent] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
+    onCreate({ content });
     setContent('');
   };
 

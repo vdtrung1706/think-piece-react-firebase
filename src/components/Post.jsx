@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import moment from 'moment';
 import { firestore } from '../firebase';
 import { UserContext } from '../providers/UserProviders';
+import { Link } from 'react-router-dom';
 
 const Post = ({ id, title, content, user, createdAt, stars, comments }) => {
   const postRef = firestore.doc(`posts/${id}`);
@@ -12,7 +13,9 @@ const Post = ({ id, title, content, user, createdAt, stars, comments }) => {
   return (
     <article className="Post">
       <div className="Post--content">
-        <h3>{title}</h3>
+        <Link to={`/posts/${id}`}>
+          <h3>{title}</h3>
+        </Link>
         <h3>{content}</h3>
       </div>
       <div className="Post--meta">
